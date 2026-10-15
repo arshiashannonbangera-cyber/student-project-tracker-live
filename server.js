@@ -20,4 +20,3 @@ app.get('/', (req, res) => {
 app.use(createApp(db));
 
 export default app;
-```
