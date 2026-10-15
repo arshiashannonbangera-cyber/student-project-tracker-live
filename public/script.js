@@ -320,3 +320,39 @@ async function initialize() {
 }
 
 initialize();
+/* ---------- Light / Dark Mode Toggle ---------- */
+
+(() => {
+  const themeButton = document.getElementById("theme-toggle");
+
+  if (!themeButton) return;
+
+  const savedTheme = localStorage.getItem("project-tracker-theme");
+  const prefersDark = window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const startDark = savedTheme
+    ? savedTheme === "dark"
+    : prefersDark;
+
+  function applyTheme(isDark) {
+    document.body.classList.toggle("dark-mode", isDark);
+
+    themeButton.textContent = isDark
+      ? "☀️ Switch to Light Mode"
+      : "🌙 Switch to Dark Mode";
+
+    themeButton.setAttribute("aria-pressed", String(isDark));
+    localStorage.setItem(
+      "project-tracker-theme",
+      isDark ? "dark" : "light"
+    );
+  }
+
+  applyTheme(startDark);
+
+  themeButton.addEventListener("click", () => {
+    const isDark = !document.body.classList.contains("dark-mode");
+    applyTheme(isDark);
+  });
+})();

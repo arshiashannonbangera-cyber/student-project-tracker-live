@@ -1,252 +1,524 @@
+/* ==========================================
+   STUDENT PROJECT TRACKER — BLUSH & LAVENDER
+   Cute • Clean • Modern • Responsive
+   ========================================== */
 
-/* ---------- Pink theme: base styles ---------- */
+/* ---------- Base styles ---------- */
 
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --pink: #d96b99;
+  --pink-dark: #b94f7b;
+  --pink-light: #fff0f5;
+  --lavender: #eee8ff;
+  --lavender-dark: #7159a6;
+  --text: #57394b;
+  --muted: #947b8a;
+  --white: #ffffff;
+  --border: #f0dce7;
+  --shadow: 0 8px 25px rgba(120, 70, 100, 0.08);
+}
+
 body {
   margin: 0;
-  padding: 32px 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  padding: 36px 20px;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
   font-size: 16px;
-  line-height: 1.6;
-  color: #65384e;
-  background-color: #fff1f6;
-  background-image: radial-gradient(#f6c5d8 1px, transparent 1px);
-  background-size: 22px 22px;
+  line-height: 1.7;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 5%, #ffe4ef 0, transparent 28%),
+    radial-gradient(circle at 90% 10%, #eee7ff 0, transparent 28%),
+    #fff9fc;
 }
+
+/* ---------- Main layout ---------- */
 
 header,
 main {
   width: 100%;
-  max-width: 760px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 850px;
+  margin: 0 auto;
 }
-
-/* ---------- Cute page heading ---------- */
 
 header {
-  position: relative;
-  margin-bottom: 32px;
-  padding: 28px;
-  background-color: #ffffff;
-  border: 1px solid #f4c4d7;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(190, 85, 127, 0.08);
-}
-
-header::after {
-  content: "♡  ✧";
-  position: absolute;
-  top: 14px;
-  right: 20px;
-  color: #e68bad;
-  font-size: 1.2rem;
-  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-  margin: 0 0 10px;
-  padding-right: 55px;
-  color: #b83270;
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
-  line-height: 1.2;
+  margin: 0 0 8px;
+  color: #a94f79;
+  font-family: "Quicksand", "Trebuchet MS", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 header p {
-  margin: 0;
-  color: #92647b;
-  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 5px 0;
 }
 
-/* ---------- Main sections ---------- */
+main {
+  display: grid;
+  gap: 24px;
+}
 
 section {
-  position: relative;
-  margin-bottom: 26px;
-  padding: 26px;
-  background-color: #ffffff;
-  border: 1px solid #f2c5d8;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(190, 85, 127, 0.07);
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
 }
 
 h2 {
-  margin: 0 0 20px;
-  color: #a72d65;
-  font-size: 1.35rem;
-  line-height: 1.4;
+  margin: 0 0 18px;
+  color: var(--lavender-dark);
+  font-family: "Quicksand", "Trebuchet MS", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 750;
 }
 
-section h2::before {
-  content: "♡ ";
-  color: #e68bad;
-}
+/* ---------- Form fields ---------- */
 
-/* ---------- Form controls ---------- */
-
-#project-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-#project-form > div {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+form {
+  display: grid;
+  gap: 15px;
 }
 
 label {
-  color: #713b56;
-  font-weight: 650;
+  display: block;
+  margin-bottom: 5px;
+  color: #76556a;
+  font-weight: 700;
 }
 
 input,
+textarea,
 select {
-  display: block;
   width: 100%;
-  min-height: 46px;
-  padding: 10px 12px;
+  padding: 12px 14px;
+  color: var(--text);
+  background: #fffbfd;
+  border: 1.5px solid #ead8e3;
+  border-radius: 12px;
   font: inherit;
-  color: #65384e;
-  background-color: #fff8fb;
-  border: 1px solid #e9b2ca;
-  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input::placeholder {
-  color: #b18a9d;
+textarea {
+  min-height: 95px;
+  resize: vertical;
 }
 
-input:hover,
-select:hover {
-  border-color: #d979a4;
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px rgba(217, 107, 153, 0.12);
 }
 
-/* ---------- Pink buttons ---------- */
+input::placeholder,
+textarea::placeholder {
+  color: #b7a2af;
+}
+
+/* ---------- General buttons ---------- */
 
 button {
-  min-height: 46px;
-  padding: 10px 20px;
-  font: inherit;
-  font-weight: 650;
-  border: 1px solid transparent;
-  border-radius: 11px;
+  font-family: inherit;
+  font-weight: 750;
   cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
 }
 
 #save-button {
-  align-self: flex-start;
-  color: #ffffff;
-  background-color: #d94f8a;
-  border-color: #d94f8a;
-  box-shadow: 0 4px 10px rgba(217, 79, 138, 0.2);
+  width: fit-content;
+  min-width: 145px;
+  padding: 12px 22px;
+  color: white;
+  background: linear-gradient(135deg, #df83aa, #c66f9c);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(198, 111, 156, 0.2);
 }
 
 #save-button::before {
-  content: "♡  ";
+  content: "♡ ";
 }
 
 #save-button:hover {
-  background-color: #bd3471;
-  border-color: #bd3471;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 17px rgba(198, 111, 156, 0.28);
 }
 
 #cancel-button {
-  align-self: flex-start;
-  color: #a72d65;
-  background-color: #fff0f6;
-  border-color: #e9b2ca;
+  width: fit-content;
+  padding: 10px 18px;
+  color: var(--lavender-dark);
+  background: var(--lavender);
+  border: 1px solid #dfd5fa;
+  border-radius: 12px;
 }
 
 #cancel-button:hover {
-  background-color: #fce0ec;
+  background: #e3d9ff;
+}
+
+/* ---------- Project list ---------- */
+
+#project-list {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#project-list > li {
+  padding: 18px;
+  background: linear-gradient(135deg, #fffafd, #faf7ff);
+  border: 1px solid #f0e1eb;
+  border-radius: 17px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#project-list > li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(120, 70, 100, 0.08);
+}
+
+/* Project text */
+
+#project-list h3 {
+  margin: 0 0 6px;
+  color: #9f5279;
+  font-family: "Quicksand", "Trebuchet MS", sans-serif;
+  font-size: 1.15rem;
+}
+
+#project-list p {
+  margin: 5px 0;
+  overflow-wrap: anywhere;
+}
+
+#project-list button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  margin: 12px 7px 0 0;
+  padding: 8px 13px;
+  font-size: 0.88rem;
+  border: 1px solid transparent;
+  border-radius: 11px;
+}
+
+/* ---------- Cute Edit button ---------- */
+
+#project-list button:first-of-type {
+  color: #7159a6;
+  background: #f0eaff;
+  border-color: #e0d5ff;
+}
+
+#project-list button:first-of-type::before {
+  content: "✎";
+  font-size: 1.1rem;
+}
+
+#project-list button:first-of-type:hover {
+  background: #e4d9ff;
+  box-shadow: 0 4px 10px rgba(113, 89, 166, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ---------- Cute Delete button ---------- */
+
+#project-list button:last-of-type {
+  color: #b94f7b;
+  background: #fff0f5;
+  border-color: #f6d6e4;
+}
+
+#project-list button:last-of-type::before {
+  content: "♡";
+  font-size: 1rem;
+}
+
+#project-list button:last-of-type:hover {
+  background: #ffdfeb;
+  box-shadow: 0 4px 10px rgba(185, 79, 123, 0.14);
+  transform: translateY(-2px);
+}
+
+/* ---------- Messages and empty state ---------- */
+
+#message {
+  margin: 12px 0;
+  color: var(--lavender-dark);
+  font-weight: 700;
+}
+
+#empty-state {
+  padding: 20px;
+  color: var(--muted);
+  text-align: center;
+  background: #fffbfd;
+  border: 1px dashed #e8cedd;
+  border-radius: 14px;
 }
 
 /* ---------- Keyboard accessibility ---------- */
 
-input:focus-visible,
-select:focus-visible,
 button:focus-visible {
-  outline: 3px solid #c13c7a;
+  outline: 3px solid #c8b6ff;
   outline-offset: 3px;
-}
-
-/* ---------- Status message ---------- */
-
-#message {
-  margin: 16px 0 0;
-  padding: 10px 12px;
-  color: #713b56;
-  background-color: #fff5f9;
-  border-radius: 9px;
-  overflow-wrap: anywhere;
-}
-
-/* ---------- Project list and empty state ---------- */
-
-#empty-state {
-  margin: 0;
-  padding: 15px;
-  color: #95667e;
-  background-color: #fff5f9;
-  border: 1px dashed #e9b2ca;
-  border-radius: 12px;
-}
-
-#empty-state::before {
-  content: "✿  ";
-  color: #d94f8a;
-}
-
-#project-list {
-  margin: 0;
-  padding-left: 24px;
-}
-
-#project-list:empty {
-  display: none;
 }
 
 /* ---------- Responsive layout ---------- */
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   body {
-    padding: 18px 12px;
-  }
-
-  header {
-    margin-bottom: 22px;
-    padding: 24px 18px;
-  }
-
-  header::after {
-    top: 12px;
-    right: 14px;
-    font-size: 1rem;
-  }
-
-  h1 {
-    padding-right: 35px;
+    padding: 22px 13px;
   }
 
   section {
-    margin-bottom: 20px;
     padding: 18px;
-    border-radius: 14px;
+    border-radius: 17px;
   }
 
-  h2 {
-    margin-bottom: 16px;
-    font-size: 1.2rem;
+  h1 {
+    font-size: 2rem;
   }
 
-  #save-button,
-  #cancel-button {
+  #project-list > li {
+    padding: 14px;
+  }
+
+  #save-button {
     width: 100%;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ==========================================
+   LIGHT & DARK MODE
+   ========================================== */
+
+:root {
+  color-scheme: light;
+  --page-bg: #fff9fc;
+  --card-bg: #ffffff;
+  --project-bg: #fffafd;
+  --text: #57394b;
+  --muted: #947b8a;
+  --border: #f0dce7;
+  --heading: #a94f79;
+  --input-bg: #fffbfd;
+  --shadow: 0 8px 25px rgba(120, 70, 100, 0.08);
+}
+
+body {
+  color: var(--text);
+  background-color: var(--page-bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+section {
+  background: var(--card-bg);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  color: var(--heading);
+}
+
+h2 {
+  color: var(--lavender-dark);
+}
+
+header p,
+#empty-state {
+  color: var(--muted);
+}
+
+input,
+textarea,
+select {
+  color: var(--text);
+  background: var(--input-bg);
+  border-color: var(--border);
+}
+
+#project-list > li {
+  color: var(--text);
+  background: var(--project-bg);
+  border-color: var(--border);
+}
+
+/* Theme toggle */
+
+#theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 14px auto 0;
+  padding: 10px 17px;
+  color: #7159a6;
+  background: #f0eaff;
+  border: 1px solid #e0d5ff;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(113, 89, 166, 0.08);
+  transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(113, 89, 166, 0.15);
+}
+
+/* Dark mode palette */
+
+body.dark-mode {
+  color-scheme: dark;
+  --page-bg: #19131f;
+  --card-bg: #251b2d;
+  --project-bg: #2c2035;
+  --text: #f5eaf5;
+  --muted: #c2aec5;
+  --border: #49334e;
+  --heading: #f3a5ca;
+  --input-bg: #211827;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+
+  background-image:
+    radial-gradient(circle at 10% 5%, #39223b 0, transparent 30%),
+    radial-gradient(circle at 90% 10%, #282044 0, transparent 30%);
+}
+
+body.dark-mode h1,
+body.dark-mode #project-list h3 {
+  color: #f3a5ca;
+}
+
+body.dark-mode h2 {
+  color: #cbb8ff;
+}
+
+body.dark-mode section {
+  background: var(--card-bg);
+  border-color: var(--border);
+}
+
+body.dark-mode #project-list > li {
+  background: var(--project-bg);
+  border-color: var(--border);
+}
+
+body.dark-mode #project-list p,
+body.dark-mode header p,
+body.dark-mode label {
+  color: var(--muted);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  color: var(--text);
+  background: var(--input-bg);
+  border-color: var(--border);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #a995ad;
+}
+
+body.dark-mode #empty-state {
+  color: var(--muted);
+  background: #211827;
+  border-color: #59415e;
+}
+
+body.dark-mode #message {
+  color: #d7c6ff;
+}
+
+/* Dark-mode Edit button */
+
+body.dark-mode #project-list button:first-of-type {
+  color: #e0d2ff;
+  background: #403052;
+  border-color: #5c4671;
+}
+
+body.dark-mode #project-list button:first-of-type:hover {
+  background: #514064;
+}
+
+/* Dark-mode Delete button */
+
+body.dark-mode #project-list button:last-of-type {
+  color: #ffb9d5;
+  background: #482738;
+  border-color: #67364e;
+}
+
+body.dark-mode #project-list button:last-of-type:hover {
+  background: #603148;
+}
+
+/* Dark-mode theme toggle */
+
+body.dark-mode #theme-toggle {
+  color: #ffe3a8;
+  background: #3a2d40;
+  border-color: #5b4563;
+}
+
+body.dark-mode #save-button {
+  background: linear-gradient(135deg, #c65e91, #a84c80);
+}
+
+body.dark-mode #cancel-button {
+  color: #e0d2ff;
+  background: #403052;
+  border-color: #5c4671;
+}
+
+body.dark-mode button:focus-visible {
+  outline-color: #f3a5ca;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  #theme-toggle {
+    transition: none;
   }
 }

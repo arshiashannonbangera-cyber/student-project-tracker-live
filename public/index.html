@@ -1,25 +1,50 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Project Tracker</title>
+
+  <title>Student Project Tracker | Arshia Bangera</title>
+  <meta name="theme-color" content="#fff0f5">
+  <meta name="description" content="A cute, organized tracker for managing electronics project ideas and progress.">
+
+  <!-- Google Fonts: Quicksand headings + Nunito body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- App JavaScript -->
   <script src="script.js" defer></script>
 </head>
+
 <body>
   <header>
     <h1>Student Project Tracker</h1>
-    <p>Arshia Bangera</p>
-    <p>R25EP012</p>
-    <p>ECM-E</p>
-    <p>Track our electronics project ideas.</p>
+
+    <button
+      id="theme-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Switch colour theme"
+    >
+      🌙 Switch to Dark Mode
+    </button>
+
+    <div class="student-info">
+      <p class="student-name">Arshia Bangera</p>
+      <p>R25EP012</p>
+      <p>ECM-E</p>
+    </div>
+
+    <p class="tagline">Track our electronics project ideas ♡</p>
   </header>
 
   <main>
     <section aria-labelledby="form-title">
-      <h2 id="form-title">Add or Edit Project</h2>
+      <h2 id="form-title">Add or Edit Project ✨</h2>
 
       <form id="project-form">
         <div>
@@ -28,6 +53,7 @@
             type="text"
             id="name"
             name="name"
+            placeholder="Enter your project name..."
             required
             maxlength="80"
           >
@@ -50,8 +76,12 @@
     </section>
 
     <section aria-labelledby="list-title">
-      <h2 id="list-title">Our Projects</h2>
-      <p id="empty-state">No projects yet. Add your first project above.</p>
+      <h2 id="list-title">Our Projects ♡</h2>
+
+      <p id="empty-state">
+        No projects yet. Add your first project above ✿
+      </p>
+
       <ul id="project-list"></ul>
     </section>
   </main>
